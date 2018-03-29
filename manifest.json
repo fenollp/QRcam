@@ -1,0 +1,38 @@
+{
+	"manifest_version": 2,
+	"default_locale": "en",
+	"version": "0.1.0",
+	"name": "QRcam",
+	"description": "__MSG_APP_DESCRIPTION__",
+	"author": "fenollp",
+
+	"icons": {
+		"16": "icon.png"
+		"128": "icon.png"
+	},
+
+	"permissions": [
+		"*://*/*",
+		"history",
+		"tabs",
+        "videoCapture"
+	],
+
+	"background": {
+		"page": "background.html",
+		"persistent": true
+	},
+	"options_page": "options.html",
+	"content_scripts": [
+		{
+			"matches": [
+				"<all_urls>"
+			],
+			"js": [
+				"app.js"
+			],
+			"run_at": "document_start",
+			"all_frames": true
+		}
+	]
+}
